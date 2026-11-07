@@ -3,6 +3,7 @@ package pwn.noobs.trouserstreak;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
 import meteordevelopment.meteorclient.systems.hud.Hud;
+import meteordevelopment.meteorclient.systems.hud.HudGroup;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Categories;
 import meteordevelopment.meteorclient.systems.modules.Modules;
@@ -18,6 +19,8 @@ public class Trouser extends MeteorAddon {
         public static final Category Main = Categories.Misc;
         public static final Category baseHunting = Categories.Render;
         public static final Category operator = new Category("TrouserOP/Creative", Items.NETHER_STAR::getDefaultInstance);
+
+        public static final HudGroup HUD_GROUP = new HudGroup("Trouser Streak");
 
         @Override
         public void onInitialize() {
@@ -42,6 +45,8 @@ public class Trouser extends MeteorAddon {
                 Modules.get().add(new AutoTitles());
                 Modules.get().add(new AutoWither());
                 Modules.get().add(new BaseFinder());
+                Modules.get().add(new BeeCoordExploit());
+                Modules.get().add(new BeeNBTCrash());
                 Modules.get().add(new BetterAutoSign());
                 Modules.get().add(new BetterScaffold());
                 Modules.get().add(new BlockListMineCommand());
@@ -53,12 +58,16 @@ public class Trouser extends MeteorAddon {
                 Modules.get().add(new CaveDisturbanceDetector());
                 Modules.get().add(new CollectibleESP());
                 Modules.get().add(new CrossbowMachineGun());
+                Modules.get().add(new EffectsGiver());
                 Modules.get().add(new ExplosionAura());
+                Modules.get().add(new EventCoordExploit());
                 Modules.get().add(new FreeBoatRide());
                 Modules.get().add(new FlightAntikick());
                 Modules.get().add(new ForceOPBook());
                 Modules.get().add(new ForceOPSign());
+                Modules.get().add(new ForceTP());
                 Modules.get().add(new HandOfGod());
+                Modules.get().add(new HandSwapper());
                 Modules.get().add(new HoleAndTunnelAndStairsESP());
                 Modules.get().add(new InfiniteElytra());
                 Modules.get().add(new InfiniteReach());
@@ -71,14 +80,16 @@ public class Trouser extends MeteorAddon {
                 Modules.get().add(new LavaAura());
                 Modules.get().add(new LecternCrash());
                 Modules.get().add(new LoadingTerrainDisconnect());
-                Modules.get().add(new TPAura());
+                Modules.get().add(new LodestoneCoords());
                 Modules.get().add(new MaceKill());
                 Modules.get().add(new MobGearESP());
                 Modules.get().add(new MultiUse());
                 Modules.get().add(new MultiverseAnnihilator());
                 Modules.get().add(new NbtEditor());
                 Modules.get().add(new NewerNewChunks());
+                Modules.get().add(new NoModDetection());
                 Modules.get().add(new NoSpawnerDetector());
+                Modules.get().add(new NoTelemetry());
                 Modules.get().add(new OnlinePlayerActivityDetector());
                 Modules.get().add(new OPplayerTPmodule());
                 Modules.get().add(new OPServerKillModule());
@@ -92,14 +103,16 @@ public class Trouser extends MeteorAddon {
                 Modules.get().add(new RedstoneNuker());
                 Modules.get().add(new RemoteEnderChest());
                 Modules.get().add(new ShulkerDupe());
-                Modules.get().add(new ForceTP());
                 Modules.get().add(new SpearKill());
                 Modules.get().add(new StatsHud());
                 Modules.get().add(new StorageLooter());
                 Modules.get().add(new SuperInstaMine());
                 Modules.get().add(new Teleport());
+                Modules.get().add(new TextDisplayNBTCrash());
+                Modules.get().add(new TPAura());
                 Modules.get().add(new TPFly());
                 Modules.get().add(new TrailMaker());
+                Modules.get().add(new TranslatableNBTCrash());
                 Modules.get().add(new TrouserBuild());
                 Modules.get().add(new UUIDBan());
                 Modules.get().add(new VoiderPlus());
@@ -115,9 +128,12 @@ public class Trouser extends MeteorAddon {
                 Commands.add(new AutoVaultHclipCommand());
                 Commands.add(new ViewNbtCommand());
                 Commands.add(new WorldInfoCommand());
+                Commands.add(new TriangulateEventsCommand());
+                Commands.add(new MovementPatchCommand());
                 Hud.get().register(WaypointTriangulationHud.INFO);
                 Hud.get().register(ElytraCount.INFO);
                 Hud.get().register(HorseInfo.INFO);
+                Hud.get().register(Censor.INFO);
         }
 
         @Override
